@@ -5,18 +5,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import javax.swing.plaf.LabelUI;
-
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class App extends Application {
 
@@ -28,8 +26,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // TODO Auto-generated method stub
-
 
         //parts of the scene
 
@@ -131,6 +127,15 @@ public class App extends Application {
                 word.increase();
             }
         }
+    }
+
+    @Test
+    public void testIncreasedWordFreq(){
+        ArrayList<Word> testList = new ArrayList<Word>();
+        Word testWord = new Word("word");
+        testList.add(testWord);
+        increaseWordFreq("word", testList);
+        assertEquals(2, testList.get(0).getFrequency());
     }
 
 
