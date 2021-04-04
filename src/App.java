@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+
 public class App extends Application {
 
     Stage window;
@@ -24,6 +25,11 @@ public class App extends Application {
     public static String fileName = "";
     public static ArrayList<Word> wordList = new ArrayList<Word>();
 
+    
+    /** 
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -61,6 +67,11 @@ public class App extends Application {
         
     }
 
+    
+    /** 
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         launch(args);
         String text = "";
@@ -110,6 +121,12 @@ public class App extends Application {
         }
     }
 
+    /**
+     * 
+     * @param string
+     * @param wordList
+     * @return true if string is found in wordList
+     */
     public static boolean inWordList(String string, ArrayList<Word> wordList){
 
         for (Word word : wordList) {
@@ -121,6 +138,11 @@ public class App extends Application {
         return false;
     }
 
+    /**
+     * Increases a words frequency in the wordList
+     * @param string
+     * @param wordList
+     */
     public static void increaseWordFreq(String string, ArrayList<Word> wordList){
         for (Word word : wordList) {
             if(string.toLowerCase().equalsIgnoreCase(word.getWord())){
